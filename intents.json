@@ -7,55 +7,58 @@
                       "what do you know",
                       "what questions do i ask you",
                       "whats an example question I can ask"],
-         "responses": ["""
-                        Here are some things you can say:
-                        1. I need help debugging
-                        2. Do I need to detach my app?
-                        3. What are popular React Native apps?
-                        4. Upgrade to the newest sdk
-                        5. How can I get started with Expo?
-                        6. What does Expo do?
-                      """],
+         "responses": ["Here are some things you can say:",
+                       "1. I need help debugging",
+                       "2. Do I need to detach my app?",
+                       "3. What are popular React Native apps?",
+                       "4. Upgrade to the newest sdk",
+                       "5. How can I get started with Expo?",
+                       "6. What does Expo do?"],
          "context_set": "sample_questions"
         },
         {"tag": "greeting",
-         "patterns": ["Hi", "How are you", "Is anyone there?", "Hello", "Good day"],
-         "responses": ["Hello, thanks for visiting", "Good to see you again", "Hi there, how can I help?"],
+         "patterns": ["hi",
+                      "hey",
+                      "yo",
+                      "whats up",
+                      "what's up",
+                      "hello",
+                      "hey there",
+                      "hi there",
+                      "greetings",
+                      "how are you"],
+         "responses": ["Hello! What do you need help with?",
+                       "Hey! How can I help?",
+                       "Hi there, how can I help?"],
          "context_set": ""
         },
-        {"tag": "goodbye",
-         "patterns": ["Bye", "See you later", "Goodbye"],
-         "responses": ["See you later, thanks for visiting", "Have a nice day", "Bye! Come back again soon."]
-        },
         {"tag": "thanks",
-         "patterns": ["Thanks", "Thank you", "That's helpful"],
-         "responses": ["Happy to help!", "Any time!", "My pleasure"]
+         "patterns": ["thanks",
+                      "thank you",
+                      "nice",
+                      "awesome",
+                      "thanks so much",
+                      "great",
+                      "cool"],
+         "responses": ["Glad to help. Need anything else? Feel free to ask!",
+                       "No problem. How else can I help?",
+                       "You're welcome. Can I help with something else?"],
+         "context_set": ""
         },
-        {"tag": "hours",
-         "patterns": ["What hours are you open?", "What are your hours?", "When are you open?" ],
-         "responses": ["We're open every day 9am-9pm", "Our hours are 9am-9pm every day"]
+        {"tag": "error",
+         "patterns": [],
+         "responses": ["I didn't quite get that. What do you mean?",
+                       "I'm not sure I understand. What are you trying to do?",
+                       "I'm a bit confused. Can you try rephrasing that?"],
+         "context_set": "error_fallback"
         },
-        {"tag": "mopeds",
-         "patterns": ["Which mopeds do you have?", "What kinds of mopeds are there?", "What do you rent?" ],
-         "responses": ["We rent Yamaha, Piaggio and Vespa mopeds", "We have Piaggio, Vespa and Yamaha mopeds"]
+        {"tag": "still_learning",
+         "patterns": [],
+         "responses": ["Sorry, I still don't think I understand.",
+                       "I'm still in early beta and learning a lot as I talk with you.",
+                       "You can help me improve by adding your chat log to https://github.com/sameesiddiqui/expo-bot/issues",
+                       "Luckily, the Expo community is really awesome and can probably help you out: https://forums.expo.io"],
+         "context_filter": "error_fallback"
         },
-        {"tag": "payments",
-         "patterns": ["Do you take credit cards?", "Do you accept Mastercard?", "Are you cash only?" ],
-         "responses": ["We accept VISA, Mastercard and AMEX", "We accept most major credit cards"]
-        },
-        {"tag": "opentoday",
-         "patterns": ["Are you open today?", "When do you open today?", "What are your hours today?"],
-         "responses": ["We're open every day from 9am-9pm", "Our hours are 9am-9pm every day"]
-        },
-        {"tag": "rental",
-         "patterns": ["Can we rent a moped?", "I'd like to rent a moped", "How does this work?" ],
-         "responses": ["Are you looking to rent today or later this week?"],
-         "context_set": "rentalday"
-        },
-        {"tag": "today",
-         "patterns": ["today"],
-         "responses": ["For rentals today please call 1-800-MYMOPED", "Same-day rentals please call 1-800-MYMOPED"],
-         "context_filter": "rentalday"
-        }
    ]
 }

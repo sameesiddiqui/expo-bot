@@ -72,11 +72,16 @@ def classify(sentence):
 def response(sentence, userID='123', show_details=False):
     # get category of the sentence
     results = classify(sentence)
-
+    print (results)
     if results:
         while results:
             for i in intents['intents']:
                 if i['tag'] == results[0][0]:
+                    # TODO: do the same for fallback error
+                    # handle multi line strings in json file
+                    if i['tag'] == 'questions':
+                        return str(i['responses'].join('\n'))
+
                     # if this is a conversation path that will have context, we need to store the info
                     if 'context_set' in i:
                         if show_details: print ('context:', i['context_set'])
